@@ -1,7 +1,9 @@
+PASSWORD := hackme12
+
 default: challenge.bit
 
 want.v: want.py
-	python3 want.py hackme12 > want.v
+	python3 want.py $(PASSWORD) > want.v
 
 challenge.json: challenge.v want.v
 	yosys -p 'synth_ice40; write_json $@' "$<"
