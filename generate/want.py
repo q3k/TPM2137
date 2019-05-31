@@ -2,6 +2,9 @@ import sys
 
 key = sys.argv[1]
 
+if len(key) != 8:
+    raise Exception("Key must be exactly 8 bytes")
+
 byts = [ord(c.encode()) for c in key]
 bits = ['{:08b}'.format(c) for c in byts]
 
