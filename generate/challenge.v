@@ -18,26 +18,6 @@ wire rst = (rst_counter != 3'b0);
 // 12Mhz / 115200 baud == 104 clocks per baud
 localparam bauds_per_clock = 104;
 
-// baud clock generator
-//reg [$clog2(bauds_per_clock)-1:0] baud_counter;
-//reg baud_clk;
-//
-//always @(posedge clk_12) begin
-//        if (rst) begin
-//                baud_counter <= (bauds_per_clock-1);
-//                baud_clk <= 0;
-//        end else begin
-//                if (baud_counter == 0) begin
-//                        baud_counter <= (bauds_per_clock-1);
-//                        baud_clk <= ~baud_clk;
-//                end else begin
-//                        baud_counter <= (baud_counter - 1);
-//                end
-//        end
-//end
-//
-//assign open = baud_clk;
-
 
 `define STATE_IDLE 32'd0
 `define STATE_START 32'd1
