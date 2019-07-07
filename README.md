@@ -1,7 +1,7 @@
-FOR ORGANIZERS ONLY
-===================
+TPM2137
+=======
 
-This is a RE challenge. Each team is given a unique binary file to reverse engineer and everything in the `description/` directory.
+This is a RE challenge for WCTF2019. Each team is given a unique binary file to reverse engineer and everything in the `description/` directory.
 
 Generating challenge binary
 ---------------------------
