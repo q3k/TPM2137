@@ -3,16 +3,6 @@ TPM2137
 
 This is a RE challenge for WCTF2019. Each team is given a unique binary file to reverse engineer and everything in the `description/` directory.
 
-Generating challenge binary
----------------------------
+For an overview of the challenge, and how it's solved, see the [presentation slides we gave at WCTF](WCTF2019 - TPM2137.pdf).
 
-Each team has a slightly different binary with an 8 characted password that the team needs to find. The password must be exactly 8 characters long and should only be printable ASCII characters.
-
-Hints
------
-
-Here are two hints you can give out:
-
-    Hint 1: Project Icestorm's icebox_vlog can help you recover logic from the bitstream
-    Hint 2: Write more Python. Simulate. Inspect register changes.
-
+If you want to give it a shot yourself, see [the description directory](description).
