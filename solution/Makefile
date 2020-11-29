@@ -1,5 +1,5 @@
 solve: challenge.json
-	~/CTF/venv-pypy/bin/python solve.py "$<"
+	python3 solve.py "$<"
 
 challenge.json: challenge.v
 	yosys -p 'read_verilog challenge.v; synth -noabc; write_json challenge.json'

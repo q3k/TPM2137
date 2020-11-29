@@ -2,21 +2,21 @@
 
 module top(
         input uart,
-        input clk_12,
+        input clk_10,
         output led_green,
         output led_red
 );
 
 reg [3:0] rst_counter = 4'b1111;
-always @(posedge clk_12) begin
+always @(posedge clk_10) begin
         if (rst_counter != 3'b0) begin
                 rst_counter <= rst_counter - 1;
         end
 end
 wire rst = (rst_counter != 3'b0);
 
-// 12Mhz / 115200 baud == 104 clocks per baud
-localparam bauds_per_clock = 104;
+// 10Mhz / 115200 baud == 87 clocks per baud
+localparam bauds_per_clock = 87;
 
 
 `define STATE_IDLE 32'd0
@@ -30,7 +30,7 @@ reg [$clog2(bauds_per_clock)-1:0] downcounter;
 
 reg [3:0] bitn;
 
-always @(posedge clk_12) begin
+always @(posedge clk_10) begin
         if (rst) begin
                 bitn <= 0;
                 state <= `STATE_IDLE;
@@ -70,7 +70,7 @@ assign downcounter_start =      (state == `STATE_IDLE && uart == 0) ? 1 :
                                 (state == `STATE_DATA && downcounter == 0) ? 1 : 0;
 
 
-always @(posedge clk_12) begin
+always @(posedge clk_10) begin
         if (rst) begin
                 downcounter <= 0;
         end else begin
@@ -88,7 +88,7 @@ wire sample_bit = (state == `STATE_DATA && downcounter == bauds_per_clock / 2);
 
 reg [7:0] cur_byte = 0;
 
-always @(posedge clk_12) begin
+always @(posedge clk_10) begin
         if (sample_bit) begin
                 cur_byte[7-bitn] <= uart;
         end
@@ -107,7 +107,7 @@ reg [key_length-1:0] given_5;
 reg [key_length-1:0] given_6;
 reg [key_length-1:0] given_7;
 
-always @(posedge clk_12) begin
+always @(posedge clk_10) begin
         if (rst) begin
                 given_0 <= 0;
                 given_1 <= 0;

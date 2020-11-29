@@ -1,4 +1,4 @@
-PASSWORD := hackme12
+PASSWORD := q3kmvenn
 
 default: challenge.bit
 

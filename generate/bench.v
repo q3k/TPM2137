@@ -2,16 +2,16 @@
 
 module bench;
 
-reg clk_12 = 0;
-always #5 clk_12 = !clk_12;
+reg clk_10 = 0;
+always #5 clk_10 = !clk_10;
 
 reg uart;
 wire open;
 
 top top(
         .uart(uart),
-        .clk_12(clk_12),
-        .open(open)
+        .clk_10(clk_10),
+        .led_green(open)
 );
 
 initial begin
@@ -22,36 +22,36 @@ end
 
 initial begin
         uart = 1;
-        #1040
+        #870
 
-        #1040 uart = 0;
+        #870 uart = 0;
 
-        #1040 uart = 1;
-        #1040 uart = 0;
-        #1040 uart = 1;
-        #1040 uart = 0;
-        #1040 uart = 1;
-        #1040 uart = 0;
-        #1040 uart = 1;
-        #1040 uart = 0;
+        #870 uart = 1;
+        #870 uart = 0;
+        #870 uart = 1;
+        #870 uart = 0;
+        #870 uart = 1;
+        #870 uart = 0;
+        #870 uart = 1;
+        #870 uart = 0;
 
-        #1040 uart = 1;
+        #870 uart = 1;
 
-        #1040 uart = 0;
+        #870 uart = 0;
 
-        #1040 uart = 1;
-        #1040 uart = 1;
-        #1040 uart = 1;
-        #1040 uart = 1;
-        #1040 uart = 1;
-        #1040 uart = 1;
-        #1040 uart = 0;
-        #1040 uart = 0;
+        #870 uart = 1;
+        #870 uart = 1;
+        #870 uart = 1;
+        #870 uart = 1;
+        #870 uart = 1;
+        #870 uart = 1;
+        #870 uart = 0;
+        #870 uart = 0;
 
-        #1040 uart = 1;
+        #870 uart = 1;
 
-        #1040;
-        #1040;
+        #870;
+        #870;
 
         $finish;
 end
